@@ -10,6 +10,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       user_id: {
+        allowNull: false,
+        defaultValue: 444,
         type: Sequelize.INTEGER,
         references: {
           model: 'Users', 
@@ -24,9 +26,11 @@ module.exports = {
         }
       },
       title: {
+        defaultValue: "Untitled",
         type: Sequelize.STRING
       },
       content: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       createdAt: {
