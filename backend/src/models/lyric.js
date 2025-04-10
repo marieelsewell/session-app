@@ -10,16 +10,26 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-      Lyric.belongsTo(models.User, { foreignKey: 'user_id' });
-      Lyric.belongsTo(models.Session, { foreignKey: 'session_id' });
+      Lyric.belongsTo(models.User, { foreignKey: 'user_id', onDelete: 'CASCADE' }); 
     }
   }
   Lyric.init({
-    user_id: DataTypes.INTEGER,
-    session_id: DataTypes.INTEGER,
-    title: DataTypes.STRING,
-    content: DataTypes.TEXT
+    user_id: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users', 
+        key: 'id' 
+      }
+    },
+    title: {
+      defaultValue: "Untitled",
+      type: DataTypes.STRING,
+    },
+    content: {
+      allowNull: false,
+      type: DataTypes.TEXT
+    }
   }, {
     sequelize,
     modelName: 'Lyric',

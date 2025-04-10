@@ -11,15 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Session.belongsTo(models.User, { foreignKey: 'user_id' });
-      Session.hasMany(models.Lyric, { foreignKey: 'session_id', onDelete: 'SET NULL' });
-      Session.hasMany(models.Recording, { foreignKey: 'session_id', onDelete: 'SET NULL' });
+      Session.belongsTo(models.User, { foreignKey: 'user_id', onDelete: 'CASCADE' });
+      Session.hasMany(models.Recording, { foreignKey: 'session_id', onDelete: 'CASCADE' });
       Session.hasMany(models.SessionComponent, { foreignKey: 'session_id', onDelete: 'CASCADE' });
     }
   }
   Session.init({
     user_id: DataTypes.INTEGER,
-    name: DataTypes.STRING
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'Untitled'
+    }
   }, {
     sequelize,
     modelName: 'Session',

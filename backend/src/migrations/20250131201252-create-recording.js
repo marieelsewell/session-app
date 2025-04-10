@@ -29,6 +29,9 @@ module.exports = {
       duration: {
         type: Sequelize.INTEGER
       },
+      title: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

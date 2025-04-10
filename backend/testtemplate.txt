@@ -1,0 +1,72 @@
+const request = require('supertest');
+const server = require('../src/server');
+const { sequelize, Lyric, Session, User } = require('../src/models');
+
+describe('ROUTES', () => {
+
+    beforeAll( async () => {
+        // Connect to the test database
+        await sequelize.authenticate();
+        
+        // Sync all models
+        await sequelize.sync({ force: true });
+    });
+
+    beforeEach( async () => {
+        await sequelize.sync({ force: true });
+    });
+
+    afterAll ( async () => {
+        await server.close();
+        await sequelize.close();
+    });
+
+    afterEach ( async () => {
+
+    });
+
+    // CREATE
+    // --------------------------------------------------------
+
+    describe('POST /api/route', () => {
+
+        it('should...', async () => {
+
+        });
+
+    });
+
+    // RETRIEVE
+    // --------------------------------------------------------
+
+    describe('GET /api/route', () => {
+
+        it('should...', async () => {
+
+        });
+
+    });
+
+    // UPDATE
+    // --------------------------------------------------------
+
+    describe('UPDATE /api/route', () => {
+
+        it('should...', async () => {
+
+        });
+
+    });
+
+    // DELETE
+    // --------------------------------------------------------
+
+    describe('DELETE /api/route', () => {
+
+        it('should...', async () => {
+
+        });
+
+    });
+
+});

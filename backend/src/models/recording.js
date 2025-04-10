@@ -10,16 +10,25 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
       Recording.belongsTo(models.User, { foreignKey: 'user_id' });
       Recording.belongsTo(models.Session, { foreignKey: 'session_id' });
     }
   }
   Recording.init({
-    user_id: DataTypes.INTEGER,
-    session_id: DataTypes.INTEGER,
-    file_path: DataTypes.STRING,
-    duration: DataTypes.INTEGER
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    session_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    file_path: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    duration: DataTypes.INTEGER,
+    title: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Recording',

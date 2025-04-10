@@ -11,31 +11,36 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'Users', 
           key: 'id' 
-        }
+        },
+        onDelete: 'CASCADE'
       },
-      name: {
-        type: Sequelize.STRING
+      title: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      chords: {
+        type: Sequelize.TEXT, 
+        allowNull: false,
       },
       key: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       tempo: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
-      instrument: {
-        type: Sequelize.STRING
+      rhythm: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
-      loop_enabled: {
-        type: Sequelize.BOOLEAN
-      },
-      loop_count: {
-        type: Sequelize.INTEGER
-      },
-      audio_file: {
-        type: Sequelize.STRING
+      scaleType: {
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

@@ -11,13 +11,17 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'Users', 
           key: 'id' 
-        }
+        },
+        onDelete: 'CASCADE',
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "Untitled"
       },
       createdAt: {
         allowNull: false,

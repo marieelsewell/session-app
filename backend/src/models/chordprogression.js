@@ -12,18 +12,37 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       ChordProgression.belongsTo(models.User, { foreignKey: 'user_id' });
-      ChordProgression.hasMany(models.ChordProgressionChord, { foreignKey: 'chord_progression_id', onDelete: 'CASCADE' });
     }
   }
   ChordProgression.init({
-    user_id: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    key: DataTypes.STRING,
-    tempo: DataTypes.INTEGER,
-    instrument: DataTypes.STRING,
-    loop_enabled: DataTypes.BOOLEAN,
-    loop_count: DataTypes.INTEGER,
-    audio_file: DataTypes.STRING
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    chords: {
+      type: DataTypes.TEXT, 
+      allowNull: false,
+    },
+    key: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    tempo: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    rhythm: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    scaleType: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   }, {
     sequelize,
     modelName: 'ChordProgression',
