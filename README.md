@@ -1,1 +1,7 @@
-# session-app
+## Session App
+
+The "Session" app addresses a common challenge for songwriters: capturing fleeting musical inspiration without a suitable medium. Often, songwriters resort to fragmented solutions like notes or voice memo apps, which are inadequate for documenting complex ideas like lyrics, melodies, or chord progressions. Storing such ideas alongside unrelated content, like grocery lists, leads to disorganization and inefficiency. Session provides a dedicated mobile platform where songwriters can securely create, store, and organize their musical ideas, ensuring inspiration is never lost, even without access to a professional recording studio.
+
+Session, built with React Native and Expo for cross-platform functionality, offers a minimalistic interface to streamline the creative process. Users can create lyrics, recordings, or chord progressions, each accessible from a home screen that organizes content by recency and time periods. Lyrics are editable with a simple title and text input, recordings support playback and duration tracking via the expo-av library, and chord progressions are dynamically built using TonalJS and Tone.js for real-time playback. The app employs a MySQL database via Sequelize for structured data storage, a RESTful API with Multer for audio uploads, and Firebase Authentication for secure user access. With a focus on usability and security, Session ensures songwriters can focus on creativity without technical distractions.
+
+<img width="298" alt="Screenshot 2025-04-14 at 2 41 39 PM" src="https://github.com/user-attachments/assets/e6507053-b557-4be4-a46a-04d648a1527d" />
